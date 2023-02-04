@@ -4,15 +4,11 @@ import "./components/NavBar";
 import NavBar from "./components/NavBar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
+import AboutUs from "./components/AboutUs";
+
 import React, { useState } from "react";
-import { type } from "@testing-library/user-event/dist/type";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
+// This is a React Router v6 app
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -23,7 +19,7 @@ function App() {
     setAlert({ msg: message, type: type });
     setTimeout(() => {
       setAlert(null);
-    }, 1500);
+    }, 2000);
   };
 
   const toogleMode = () => {
@@ -55,36 +51,39 @@ function App() {
   };
 
   return (
-    <>
-      <Rounter>
-        {/* <NavBar title="ReactJS" /> */}
-        <NavBar
-          title="TextUtils"
-          mode={mode}
-          toogleMode={toogleMode}
-          switchBtn={switchBtn}
+    <BrowserRouter>
+      {/* <NavBar title="ReactJS" /> */}
+      <NavBar
+        title="TextUtils"
+        mode={mode}
+        toogleMode={toogleMode}
+        switchBtn={switchBtn}
+      />
+      <Alert alert={alert} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <TextForm
+              heading="Welcome to Text Utils"
+              deftext="Enter lowercase letters"
+              mode={mode}
+              showAlert={showAlert}
+            />
+          }
         />
-        <Alert alert={alert} />
-        <Switch>
-          <Route path="/textform">
-            <TextForm
-              heading="Welcome to Text Utils"
-              deftext="Enter lowercase letters"
-              mode={mode}
-              showAlert={showAlert}
+        <Route
+          path="/about"
+          element={
+            <AboutUs
+              accomFirst="My Self"
+              accomTwo="What is TextUtils"
+              accomThree="React JS"
             />
-          </Route>
-          <Route path="/">
-            <TextForm
-              heading="Welcome to Text Utils"
-              deftext="Enter lowercase letters"
-              mode={mode}
-              showAlert={showAlert}
-            />
-          </Route>
-        </Switch>
-      </Rounter>
-    </>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

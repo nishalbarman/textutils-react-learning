@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function NavBar(props) {
   return (
@@ -12,14 +13,14 @@ export default function NavBar(props) {
             : { backgroundColor: "black" }
         }>
         <div className="container-fluid">
-          <a
+          <Link
             className="navbar-brand"
-            href="/"
+            to="/"
             style={
               props.mode === "light" ? { color: "black" } : { color: "white" }
             }>
             {props.title}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -33,34 +34,34 @@ export default function NavBar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link"
                   aria-current="page"
-                  href="/"
+                  to="/"
                   style={
                     props.mode === "light"
                       ? { color: "black" }
                       : { color: "white" }
                   }>
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link"
-                  href="/"
+                  to="/about"
                   style={
                     props.mode === "light"
                       ? { color: "black" }
                       : { color: "white" }
                   }>
                   About US
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="/"
+                  to="/"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -70,7 +71,7 @@ export default function NavBar(props) {
                       : { color: "white" }
                   }>
                   More
-                </a>
+                </Link>
                 <ul
                   className="dropdown-menu"
                   style={
@@ -82,28 +83,28 @@ export default function NavBar(props) {
                         }
                   }>
                   <li>
-                    <a
+                    <Link
                       className="dropdown-item"
-                      href="/"
+                      to="/"
                       style={
                         props.mode === "light"
                           ? { color: "black" }
                           : { color: "white" }
                       }>
                       Download
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="dropdown-item"
-                      href="/"
+                      to="/"
                       style={
                         props.mode === "light"
                           ? { color: "black" }
                           : { color: "white" }
                       }>
                       Upload
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr
@@ -116,30 +117,30 @@ export default function NavBar(props) {
                     />
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="dropdown-item"
-                      href="/"
+                      to="/"
                       style={
                         props.mode === "light"
                           ? { color: "black" }
                           : { color: "white" }
                       }>
                       Share
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link disabled"
-                  href="/"
+                  to="/"
                   style={
                     props.mode === "light"
                       ? { color: "black" }
                       : { color: "white" }
                   }>
                   Hire Me
-                </a>
+                </Link>
               </li>
             </ul>
 
