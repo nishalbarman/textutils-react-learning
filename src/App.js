@@ -76,9 +76,10 @@ function App() {
           path="/about"
           element={
             <AboutUs
-              accomFirst="My Self"
-              accomTwo="What is TextUtils"
-              accomThree="React JS"
+              accomFirst="An Easy Way To Change Uppercase to Lowercase And Title Capitalization"
+              // accomTwo="What is TextUtils"
+              // accomThree="React JS"
+              mode={mode}
             />
           }
         />

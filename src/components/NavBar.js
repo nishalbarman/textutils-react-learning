@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 
 export default function NavBar(props) {
   return (
-    <div>
+    <div
+      className="container"
+      style={{
+        borderBottom: props.mode === "light" ? "black" : "white",
+      }}>
       <nav
         className="navbar navbar-expand-lg"
-        style={
-          props.mode === "light"
-            ? { backgroundColor: "white" }
-            : { backgroundColor: "black" }
-        }>
+        style={{
+          backgroundColor: props.mode === "light" ? "white" : "black",
+        }}>
         <div className="container-fluid">
           <Link
             className="navbar-brand"
@@ -58,7 +60,7 @@ export default function NavBar(props) {
                   About US
                 </Link>
               </li>
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
                   to="/"
@@ -141,7 +143,7 @@ export default function NavBar(props) {
                   }>
                   Hire Me
                 </Link>
-              </li>
+              </li> */}
             </ul>
 
             {/* <div className="mx-5">
@@ -155,26 +157,23 @@ export default function NavBar(props) {
               <br />
             </div> */}
 
-            <div className="mx-5">
-              <button
-                type="button"
-                className="btn btn-light"
-                style={
-                  props.mode === "light"
-                    ? { color: "black" }
-                    : {
-                        color: "white",
-                        backgroundColor: "black",
-                        border: "1px solid white",
-                      }
-                }
-                onClick={props.toogleMode}>
-                {props.switchBtn}
-              </button>
-              <br />
-            </div>
+            <button
+              type="button"
+              className="btn btn-outline-success"
+              style={
+                props.mode === "light"
+                  ? { color: "black" }
+                  : {
+                      color: "white",
+                      backgroundColor: "black",
+                      border: "1px solid white",
+                    }
+              }
+              onClick={props.toogleMode}>
+              {props.switchBtn}
+            </button>
 
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -189,8 +188,8 @@ export default function NavBar(props) {
                       }
                     : {}
                 }
-              />
-              <button
+              /> */}
+            {/* <button
                 className="btn btn-outline-success"
                 type="submit"
                 style={
@@ -199,8 +198,8 @@ export default function NavBar(props) {
                     : { color: "white" }
                 }>
                 Search
-              </button>
-            </form>
+              </button> */}
+            {/* </form> */}
           </div>
         </div>
       </nav>

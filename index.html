@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Math.PI
+    </title>
+
+</head>
+
+<body>
+    <h2>
+        Welcome
+    </h2>
+    <p> Here the radius of circle is 20cm </p>
+    <p>
+        Click the following button to get the area and perimeter of circle.
+    </p>
+    <p id="para"></p>
+    <p id="para1"></p>
+    <input id="radius" type="number" />
+    <button onclick="fun()"> Click me </button>
+
+    <script>
+        function fun() {
+            let r = document.getElementById('radius').value;
+            console.log(r);
+            document.getElementById('para').innerHTML = 'The area of circle with radius 20cm is: ' + Math.PI * r * r;
+            document.getElementById('para1').innerHTML = 'The perimeter of circle with radius 20cm is: ' + 2 * Math.PI * r;
+        }
+    </script>
+
+</body>
+
+</html>

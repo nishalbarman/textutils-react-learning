@@ -88,7 +88,8 @@ export default function TextForm(props) {
                     backgroundColor: "black",
                     border: "1px solid green",
                   }
-            }>
+            }
+            disabled={text.length === 0}>
             Convert
           </button>
 
@@ -104,7 +105,8 @@ export default function TextForm(props) {
                     backgroundColor: "black",
                     border: "1px solid green",
                   }
-            }>
+            }
+            disabled={text.length === 0}>
             Count Vowels
           </button>
         </div>
@@ -134,7 +136,12 @@ export default function TextForm(props) {
                 }
           }>
           {text === "" ? "0" : text.length} Characters,{" "}
-          {text === "" ? "0" : words} Words
+          {text === ""
+            ? "0"
+            : text.split(/\s+/).filter((element) => {
+                return element.length !== 0;
+              }).length}{" "}
+          Words
         </label>
         <br />
         <label
@@ -145,8 +152,14 @@ export default function TextForm(props) {
                   color: "white",
                 }
           }>
-          Average {text === "" ? "0" : 0.0076 * text.split(" ").length} minutes
-          needed to read
+          Average{" "}
+          {text === ""
+            ? "0"
+            : 0.0076 *
+              text.split(/\s+/).filter((element) => {
+                return element.length !== 0;
+              }).length}{" "}
+          minutes needed to read
         </label>
         <br />
         <label
@@ -182,7 +195,7 @@ export default function TextForm(props) {
                   border: "1px solid white",
                 }
           }>
-          <code>{text}</code>
+          <code>{text.length === 0 ? "No text for preview" : text}</code>
         </div>
       </div>
     </>
